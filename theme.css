@@ -19,8 +19,8 @@
  }
  
  /*********************************************
-   * GLOBAL STYLES
-   *********************************************/
+    * GLOBAL STYLES
+    *********************************************/
  :root {
      --r-background-color: #fff;
      --r-main-font: "JetBrains Mono", "LXGW WenKai Screen", sans-serif;
@@ -107,8 +107,8 @@
  }
  
  /*********************************************
-   * HEADERS
-   *********************************************/
+    * HEADERS
+    *********************************************/
  .reveal h1,
  .reveal h2,
  .reveal h3,
@@ -153,11 +153,11 @@
  }
  
  /*********************************************
-   * OTHER
-   *********************************************/
+    * OTHER
+    *********************************************/
  .reveal p {
      margin: var(--r-block-margin) 1em;
-     line-height: 1;
+     line-height: 1.5em;
      font-size: 0.8em;
  }
  
@@ -194,6 +194,15 @@
      display: inline-block;
      padding: 0 1em 0 1em;
      font-size: 0.8em;
+     line-height: 1.5em;
+ }
+ 
+ .reveal p+ol {
+     margin-top: -0.5em;
+ }
+ 
+ .reveal p+ul {
+     margin-top: -0.5em;
  }
  
  .reveal ol {
@@ -266,7 +275,7 @@
      text-align: left;
      font-size: 0.55em;
      font-family: var(--r-code-font);
-     line-height: 1.2em;
+     line-height: 1.5em;
      word-wrap: break-word;
      box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.15);
  }
@@ -281,7 +290,7 @@
      display: block;
      padding: 5px;
      overflow: auto;
-     max-height: 400px;
+     max-height: none;
      word-wrap: normal;
  }
  
@@ -293,22 +302,40 @@
      white-space: pre;
  }
  
- .reveal table {
-     margin: auto;
+ /* 此处table需为section的直接子代 否则会影响到code-wrapper下的table */
+ section>table {
      border-collapse: collapse;
-     border-spacing: 0;
+     width: 90%;
+     border: 1px solid #c6c6c6 !important;
+     margin-bottom: 20px;
  }
  
- .reveal table th {
-     font-weight: bold;
+ section>table th {
+     background-color: #ddeeff !important;
+     text-align: center !important;
  }
  
- .reveal table th,
- .reveal table td {
+ section>table th,
+ section>table td {
+     border-collapse: collapse;
+     border-right: 1px solid #c6c6c6 !important;
+     border-bottom: 1px solid #c6c6c6 !important;
+     padding: 5px 9px;
+     font-size: 0.6em;
+ }
+ 
+ section>table td {
      text-align: left;
-     padding: 0.2em 0.5em 0.2em 0.5em;
-     border-bottom: 1px solid;
-     font-size: 0.8em;
+     word-break: break-all;
+     font-weight: normal;
+ }
+ 
+ section>table>tbody>tr:nth-child(odd) {
+     background-color: #fff !important;
+ }
+ 
+ section>table>tbody>tr:nth-child(even) {
+     background-color: #f8f8f8 !important;
  }
  
  .reveal table th[align=center],
@@ -351,9 +378,17 @@
      margin: var(--r-block-margin) 0;
  }
  
+ .reveal .multi-col {
+     display: flex;
+ }
+ 
+ .reveal .multi-col .col {
+     width: 100%;
+ }
+ 
  /*********************************************
-   * LINKS
-   *********************************************/
+    * LINKS
+    *********************************************/
  .reveal a {
      color: var(--r-link-color);
      text-decoration: none;
@@ -372,8 +407,8 @@
  }
  
  /*********************************************
-   * Frame helper
-   *********************************************/
+    * Frame helper
+    *********************************************/
  .reveal .r-frame {
      border: 4px solid var(--r-main-color);
      box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
@@ -389,23 +424,23 @@
  }
  
  /*********************************************
-   * NAVIGATION CONTROLS
-   *********************************************/
+    * NAVIGATION CONTROLS
+    *********************************************/
  .reveal .controls {
      color: var(--r-link-color);
  }
  
  /*********************************************
-   * PROGRESS BAR
-   *********************************************/
+    * PROGRESS BAR
+    *********************************************/
  .reveal .progress {
      background: rgba(0, 0, 0, 0.2);
      color: var(--r-link-color);
  }
  
  /*********************************************
-   * PRINT BACKGROUND
-   *********************************************/
+    * PRINT BACKGROUND
+    *********************************************/
  @media print {
      .backgrounds {
          background-color: var(--r-background-color);
