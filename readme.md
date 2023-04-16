@@ -22,6 +22,15 @@ reveal-md slides.md -w  # watch
 ```bash
 reveal-md slides.md --static _site
 ```
+5. 导出pdf
+    1. 使用Puppeteer生成pdf
+    ```bash
+    reveal-md slides.md --print slides.pdf
+    ```
+    但实测这样效果不好，会有诡异的排版和空白页
+
+    2. 在浏览器地址栏后加上`?print-pdf`，然后打印为pdf（确保url中没有#等后缀）
+
 5. 快捷键
 - f: 全屏显示(按下Esc或f退出)
 - s: 演讲者模式
